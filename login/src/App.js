@@ -1,38 +1,37 @@
 import "./App.css";
-import profile from "./images/a.png";
-import email from "./images/email.jpg";
-import pass from "./images/pass.png";
+import 'antd/dist/antd.min.css';
+import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
+import { Input, Space, Tooltip } from 'antd';
+import { EyeInvisibleOutlined,EyeTwoTone } from '@ant-design/icons';
 function App() {
   return (
-    <div classNameName="App">
-      <div className="main">
-        <div className="sub-main">
-          <div>
-            <div className="imgs">
-              <div className="container-image">
-                <img src={profile} alt="profile" className="profile" />
-              </div>
-            </div>
-            <div>
-              <h1>Login Page</h1>
-              <div>
-                <img src={email} alt="email" className="email" />
-                <input type="text" placeholder="user name" className="name" />
-              </div>
-              <div className="second-input">
-                <img src={pass} alt="pass" className="email" />
-                <input
-                  type="password"
-                  placeholder="user name"
-                  className="name"
-                />
-              </div>
-              <div className="login-button">
-                <Button  type="primary">Login</Button>
-              </div>
-            </div>
-          </div>
+    <div className="App">
+      <div className='container'>
+        <div className='form'>
+          <h1>Login Form</h1>
+          <Space direction="vertical">
+          <Input
+          className="input"
+      placeholder="Enter your username"
+      prefix={<UserOutlined className="site-form-item-icon" />}
+      suffix={
+        <Tooltip title="Extra information">
+          <InfoCircleOutlined
+            style={{
+              color: 'rgba(0,0,0,.45)',
+            }}
+          />
+        </Tooltip>
+      }
+    />      
+    <Input placeholder="Email"/>
+    <Input.Password
+      placeholder="input password"
+      iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+    /> 
+    <Button type="primary">Submit</Button>
+    </Space>   
         </div>
       </div>
     </div>
